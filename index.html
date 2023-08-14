@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+    <title>Practice With JS and TS</title>
+</head>
+<body>
+    <h1>Correr JavaScript con Node.js</h1>
+    <h2>Ejemplo 1</h2>
+    <p>
+        Tenemos el siguiente archivo en VSC. Observemos que no hay archivo html, por lo tanto no podemos ejecutar esta función en el navegador. 
+    </p>
+    <img src="./imagenes/1.png" alt="img 1">
+    <h3>Pasos</h3>
+    <p>
+        1 - Tener instalado node.js. Puedes ir a la página de descarga <a href="https://nodejs.org/es">aquí</a> <br>
+        2 - Abrimos una Terminal dentro de VSC. En la barra de herramientas, en la parte superior, vamos a Terminal/New Terminal. Se nos abre en la parte de abajo del VSC la terminal. <br>
+        3 - Usamos el comando node (espacio)nombreDelArchivo, en este caso ejemplo1.js y damos enter. Mostrará el resultado de la funcion creada, en este caso la funcion CalcularEnvio(), suma los parametros precioProducto mas valorEncomienda.
+    </p>
+    <h4>Resultado ejecución del comando mensionado anteriormente</h4>
+    <img src="./imagenes/2.png" alt="resultado funcion">
+    <p>
+        <strong>Nota</strong><br>En el ejemplo las variables las incluimos directamente en la funcion sin declararlas, por lo tanto el programa no detecta que tipo de datos debe recibir. Esto no está bien, ya que necesitamos que el cálculo se haga sobre valores numéricos; si cambiamos uno de los parametros por texto, el programa concatenará, ya que obviamente no se puede hacer una operacion matemática con un valor numérico y otro de texto y JavaScript esta programado para funcionar de esta manera. 
+    </p>
+    <img src="./imagenes/5.png" alt="Cambio de variable a texto">
+    <p>
+        Observemos en la imagen anterior, que si cambiamos un parámetro a texto, no nos da errores de sintaxis, puesto que no se han declarado los tipos de datos que recibiran los parámetros, por lo tanto, JS hace una concatenación, como se había menciando anteriormente. 
+    </p>
+    <h3>TypeScrip entra en escena</h3>
+    <p>
+        Aqui es donde entra TypeScript, para ayudar a los desarrolladores a solucionar este tipo de problemas, en realidad es un lenguaje creado con este fin, "ayudar a los programadores".
+    </p>
+    <h3>Pasos para la instalación de TypeScript</h3>
+    <p>
+        <strong>Pasos</strong><br>
+        1 - Vamos a la página oficial de TypeScript. <a href="https://www.typescriptlang.org/">Aquí</a> un enlace directo. <br>
+        2 - En la pestaña Download, seccion via npm, copiamos el comando <strong>"npm install typescript --save-dev".</strong>
+    </p>  
+    <img src="./imagenes/3.png" alt="Dowload TS">
+    <p>
+        3 - Ejecutamos el comando <strong>"npm install typescript --save-dev"</strong> en la terminal de VSC.
+    </p>    
+    
+    <p>
+        Como ya tenemos instalado TypeScript, podemos cambiar la extensión del archivo con el que estamos trabajando, es decir, .js a .ts. No abrá ningún cambio sustancial, pero veremos más adelante las ventajas de este lenguaje.
+    </p>
+    <img src="./imagenes/4.png" alt="Cambio extensión">
+    <p>
+        Observemos que no errores de sintaxis y que el archivo sigue siendo el mismo.<br><strong>Importante:</strong> El código de TypeScript no lo podemos ejecutar de la mismo comando de Node que con JavaScript. 
+    </p>
+    <p>
+        Para ejecutar un archivo TS debemos primero convertirlo a JS, esto se logra con el comando de Node <strong>"npx tsc nombreArchivo"</strong> en este caso sería <strong>npx tsc ejemplo1.ts</strong>. Esto genera otro archivo con el mismo nombre, pero con la extensión js, como se muestra en la imagen siguiente:
+    </p>
+    <img src="./imagenes/6.png" alt="Conversion archivo TS a JS">
+    <p>
+        <strong>Nota:</strong> Si se ralizan cambio en el archivo .ts, debemos ejecutar nuevamente el comando para generar el archivo .js.<br>
+        Una vez hecho el cambio del archivo a JS, podemos ejecutarlo con el comando de node que mensionamos más arriba.
+    </p>
+    <h3>Mejoramiento del código JS con código TS</h3>
+    <p>
+        Para el tipado en TS simplemente agregamos dos puntos (:) al final de la variable o parámetro y le asignamos el tipo de dato. Para números solo existe un tipo de dato que es número. Para el ejemplo que estamos trabajando quedaría como se muestra en la imagen siguiente:
+    </p>
+    <img src="./imagenes/7.png" alt="Comparación código JS y TS">
+    <p>
+        En la imagen anterior, el código que está resaltado con el recuadro de color amarillo, muestra los cambios que se hicieron en el archivo .ts, el cual anteriormente era el mismo que el .js. <br>Lo que hicimos fue darle tipado a los parámetros, es decir, especificarle a la función que estos parámetros van a ser de tipo número. Por ahora solo muestra un error y es por lo que se comenta en a imagen, pero una vez se solucione ese error, mostrará el siguinete. <Strong>Este lenguaje no muestra todos los errores al tiempo.</Strong><br><br>En la próxima imágen se solucionará este primer error,pero aparecerá el siguiente, el cual es evidente el por qué.
+    </p>
+    <p>
+        <strong>Importante:</strong>Recordemos que si se realizan cambios en el archivo .ts, debemos ejecutar el comando para conversión de archivo .ts a archivo .js.  
+    </p>
+    <img src="./imagenes/8.png" alt="error de tipado ts">
+    <p>
+        El error que se muestra despues de haber hecho la primera corrección y ejecutado el comando de converisón, es porque no se especifico que el segundo parámtro de la función iba a recibir un dato tipo numérico, pero le estamos enviando un dato tipo texto. <br>Para solucionarlo, simplemente cambiamos el valor del parámetro a tipo número, simplemente quitandole las comillas simples.
+    </p>
+    <p>
+        <strong>Nota:</strong> Observemos que el archivo .js, al ejecutar el comando de cambio de extensión, no cambió a pesar que al archivo .ts le añadimos el tipo de dato a los parámtetros.
+    </p>
+    <br>
+    <p>
+        Tambien podemos tipar la función para que retorne el tipo de dato que nosotros necesitamos, esto lo logramos de la misma manera como tipamos los parámetros, pero al final del cierre de los paréntesis de la función y antes de la llave de apertura. Al configurar la función de esta manera, nos va a presentar un error tal como está, ya que no le estamos pidiendo que retorne, sino que muestre en consola, con la función console.log(). Si vamos a tipar la función, debemos agregar un return y eliminar o comentar, en esta caso la linea console.lo(...). 
+    </p>
+    <img src="./imagenes/9.png" alt="">
+    <img src="./imagenes/10.png" alt="">
+    
+    <footer>
+        Información tomada del Bootcamp de Angular y .net core del canal <a href="https://www.youtube.com/@BaezStoneCreators">BaezStone Creators</a> de YouTube
+    </footer>
+</body>
+</html>
